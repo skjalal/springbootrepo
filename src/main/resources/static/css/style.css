@@ -139,3 +139,8 @@ div.dataTables_wrapper div.dataTables_processing {
 	top: 220px;
 	background: transparent;
 }
+
+.btn-primary {
+    background: #008fd5 !important;
+    border-color: #008fd5 !important;
+}

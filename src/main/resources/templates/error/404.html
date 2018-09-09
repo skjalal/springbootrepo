@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>SutiDesk</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href='images/favicon.ico' rel='shortcut icon' />
+<link rel="stylesheet" th:href="@{css/bootstrap.css}" />
+<style type="text/css">
+.BodyContent2 {
+	padding-bottom: 16px;
+}
+
+.container-fluid {
+	padding-right: 15px;
+	padding-left: 15px;
+	margin-right: auto;
+	margin-left: auto;
+}
+
+a {
+	color: #008fd4;
+	text-decoration: none;
+	outline: none
+}
+
+a:hover {
+	color: #f75245
+}
+
+.password {
+	margin: 20px auto !important;
+}
+
+.password .plogo {
+	margin-bottom: 20px;
+}
+
+.password h5 {
+	background: #008fd5 none repeat scroll 0 0;
+	font-size: 24px;
+	line-height: 20px;
+	padding: 4px 3px 6px;
+	margin: 0px;
+}
+
+.password .form-group {
+	margin-bottom: 10px !important;
+}
+
+.password .modal-footer .btn+.btn {
+	margin-bottom: 0;
+	margin-left: 10px !important;
+}
+
+.password .row {
+	margin-left: 0px !important;
+	margin-right: 0px !important;
+}
+
+.password .modal-header {
+	background: #008fd5 none repeat scroll 0 0;
+	color: #fff;
+	padding: 4px 15px 5px;
+}
+
+.password .modal-content {
+	background-clip: padding-box;
+	background-color: #fff;
+	border: 1px solid rgba(0, 0, 0, 0.2);
+	border-radius: 0px;
+	box-shadow: 0 0px 5px rgba(0, 0, 0, 0.1);
+	outline: 0 none;
+	position: relative;
+}
+
+.password .modal-body {
+	padding: 10px 20px 15px;
+	position: relative;
+}
+
+.password .modal-header {
+	border-bottom: none;
+}
+</style>
+<script type="text/javascript">
+	window.history.forward(1);
+	function noBack() { 
+	     window.history.forward(1); 
+	}
+</script>
+</head>
+<body onload="noBack();">
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-sm-12">
+				<div class="modal-dialog password" role="document">
+					<div class="row">
+						<div class="col-sm-12 text-center">
+							<img th:src="@{images/SutiDesk.png}" width="149" height="72" class="plogo">
+						</div>
+					</div>
+					<div class="modal-content">
+						<div class="modal-header">
+							<h5>Session Expired</h5>
+						</div>
+						<div class="modal-body">
+							<p class="text-justify">Your online SutiDesk session has expired and you have been logged out.</p>
+							<p><a th:href="@{/}">Click here</a> to login.</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>
