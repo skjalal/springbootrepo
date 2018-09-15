@@ -1,5 +1,6 @@
 package com.demo.entities;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -8,6 +9,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 import org.hibernate.type.TextType;
@@ -32,6 +34,10 @@ public class UserRegistration {
 
 	@Column(name = "password", nullable = false, length = 45)
 	private String password;
+	
+	@JoinColumn(name = "role_id", unique = true)
+	@OneToOne(cascade = CascadeType.ALL)
+	private Role role;
 
 	@Column(name = "type_id", nullable = false)
 	private Integer typeId;
@@ -101,7 +107,7 @@ public class UserRegistration {
 		this.firstName = firstName;
 	}
 
-	public UserRegistration(StatusMain statusMain, Integer companyId, String userName, String password, Integer typeId,
+	public UserRegistration(StatusMain statusMain, Integer companyId, String userName, String password, Role role, Integer typeId,
 			String typeName, String firstName, TextType privilege, String forgotKey, String timeZone,
 			String lastLoginTime, String lastLogoutTime, String ipAddress, String clocksEnable, String digitalFormat,
 			String dateDisplay, String gmtDisplay, String timeDisplay, String countryDisplay, String isAgentAdmin,
@@ -111,6 +117,7 @@ public class UserRegistration {
 		this.companyId = companyId;
 		this.userName = userName;
 		this.password = password;
+		this.role = role;
 		this.typeId = typeId;
 		this.typeName = typeName;
 		this.firstName = firstName;
@@ -169,6 +176,14 @@ public class UserRegistration {
 
 	public void setPassword(String password) {
 		this.password = password;
+	}
+
+	public Role getRole() {
+		return role;
+	}
+
+	public void setRole(Role role) {
+		this.role = role;
 	}
 
 	public Integer getTypeId() {
