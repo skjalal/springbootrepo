@@ -20,7 +20,7 @@ public class UserRegistrationServiceImpl implements UserRegistrationService {
 	}
 
 	@Override
-	public UserRegistration findByEmail(String userName) {
+	public UserRegistration findByUserName(String userName) {
 		return userRegistrationRepository.findByUserName(userName);
 	}
 

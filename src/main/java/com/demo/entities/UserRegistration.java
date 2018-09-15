@@ -12,8 +12,6 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
-import org.hibernate.type.TextType;
-
 @Entity
 @Table(name = "user_registration")
 public class UserRegistration {
@@ -32,7 +30,7 @@ public class UserRegistration {
 	@Column(name = "user_name", nullable = false, length = 50)
 	private String userName;
 
-	@Column(name = "password", nullable = false, length = 45)
+	@Column(name = "password", nullable = false, length = 250)
 	private String password;
 	
 	@JoinColumn(name = "role_id", unique = true)
@@ -48,8 +46,8 @@ public class UserRegistration {
 	@Column(name = "first_name", nullable = false, length = 50)
 	private String firstName;
 
-	@Column(name = "privilege")
-	private TextType privilege;
+	@Column(name = "privilege", length = 500)
+	private String privilege;
 
 	@Column(name = "forgot_key", length = 50)
 	private String forgotKey;
@@ -108,7 +106,7 @@ public class UserRegistration {
 	}
 
 	public UserRegistration(StatusMain statusMain, Integer companyId, String userName, String password, Role role, Integer typeId,
-			String typeName, String firstName, TextType privilege, String forgotKey, String timeZone,
+			String typeName, String firstName, String privilege, String forgotKey, String timeZone,
 			String lastLoginTime, String lastLogoutTime, String ipAddress, String clocksEnable, String digitalFormat,
 			String dateDisplay, String gmtDisplay, String timeDisplay, String countryDisplay, String isAgentAdmin,
 			Integer defaultCompanyId, String calendarUserId) {
@@ -210,11 +208,11 @@ public class UserRegistration {
 		this.firstName = firstName;
 	}
 
-	public TextType getPrivilege() {
+	public String getPrivilege() {
 		return privilege;
 	}
 
-	public void setPrivilege(TextType privilege) {
+	public void setPrivilege(String privilege) {
 		this.privilege = privilege;
 	}
 

@@ -8,7 +8,7 @@ public interface UserRegistrationService {
 
 	public UserRegistration findById(Integer id);
 
-	public UserRegistration findByEmail(String email);
+	public UserRegistration findByUserName(String userName);
 
 	public List<UserRegistration> findAll();
 
