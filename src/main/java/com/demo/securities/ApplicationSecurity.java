@@ -9,11 +9,15 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.web.authentication.AuthenticationSuccessHandler;
 import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 
 @Configuration
 @EnableWebSecurity
 public class ApplicationSecurity extends WebSecurityConfigurerAdapter {
+
+	@Autowired
+	AuthenticationSuccessHandler authenticationSuccessHandler;
 
 	@Autowired
 	private UserDetailsService userDetailsService;
@@ -29,9 +33,12 @@ public class ApplicationSecurity extends WebSecurityConfigurerAdapter {
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
 		http.authorizeRequests().antMatchers("/").permitAll().antMatchers("/login").permitAll()
-				.antMatchers("/registration").permitAll().antMatchers("/superadmin/**").hasAuthority("SUPERADMIN").anyRequest()
-				.authenticated().and().csrf().disable().formLogin().loginPage("/login").loginProcessingUrl("/login")
-				.failureUrl("/login?error=true").defaultSuccessUrl("/superadmin/home").usernameParameter("username")
+				.antMatchers("/registration").permitAll().antMatchers("/superadmin/**").hasAuthority("SUPERADMIN")
+				.anyRequest().authenticated().antMatchers("/companyadmin/**").hasAuthority("COMPANYADMIN").anyRequest()
+				.authenticated().antMatchers("/agentadmin/**").hasAuthority("AGENTADMIN").anyRequest().authenticated()
+				.antMatchers("/user/**").hasAuthority("AGENT").anyRequest().authenticated().and().csrf().disable()
+				.formLogin().loginPage("/login").loginProcessingUrl("/login").failureUrl("/login?error=true")
+				.successHandler(authenticationSuccessHandler).usernameParameter("username")
 				.passwordParameter("password").and().logout().logoutRequestMatcher(new AntPathRequestMatcher("/logout"))
 				.logoutSuccessUrl("/").and().exceptionHandling().accessDeniedPage("/access-denied");
 	}
