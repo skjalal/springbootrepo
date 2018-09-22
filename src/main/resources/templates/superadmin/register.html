@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="~{layout}">
+<head>
+<title>SutiDesk Registration</title>
+</head>
+<body>
+	<div class="container-fluid BodyContent" layout:fragment="content">
+		<div class="container">
+			<div class="container-bgwraper">
+				<div class="row">
+					<div class="col-sm-6 col-md-6 col-xs-12 register-bg2">
+						<h6>Top 3 reasons why people choose SutiDesk</h6>
+						<div class="bullets-arrow">
+							<ul class="bullets-arrow">
+								<li>Easy to use</li>
+								<li>Looks professional</li>
+								<li>Lots of features for free</li>
+							</ul>
+						</div>
+						<h6>Key Features</h6>
+						<div class="bullets-arrow">
+							<ul class="bullets-arrow">
+								<li>Email into Tickets</li>
+								<li>Predefined Messages</li>
+								<li>Automatic Notices</li>
+								<li>Troubleshooting</li>
+								<li>Keep Track of Customer</li>
+								<li>Knowledge Base</li>
+							</ul>
+						</div>
+					</div>
+					<div class="col-sm-6 col-md-6 col-xs-12 register-bg2">
+						<form th:action="@{/register}" id="companyRegisterForm" name="companyRegisterForm" role="form" method="post">
+							<h5>Register</h5>
+							<h4>Just fill out the basic information below and you will be up and running in no time.</h4>
+							<label>First Name</label>
+    						<input type="text" class="form-control mand" id="name" name="name" placeholder="First Name">
+    						<label>Last Name</label>
+    						<input type="text" class="form-control mand" id="lastName" name="lastName" placeholder="Last Name">
+    						<label>Email</label>
+    						<input type="email" class="form-control mand" id="email" name="email" placeholder="Email">
+    						<label>Company Name</label>
+    						<input type="text" class="form-control mand" id="companyName" name="companyName" placeholder="Company Name">
+    						<label>Company Code</label>
+    						<div class="row">
+    							<div class="col-sm-9">
+    								<input type="text" class="form-control mand" id="companyName" name="companyName" placeholder="Company Name">
+    							</div>
+    							<div class="col-sm-3"><label style="margin-top: 8px; margin-left: -18px;">.sutidesk.com</label></div>
+    						</div>
+    						Alpha-numeric characters (a-z,A-Z, 0-9) and less than 24 characters.<br /><br />
+    						<button type="submit" class="btn btn-success pull-right">Register</button>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

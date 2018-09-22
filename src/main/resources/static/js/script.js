@@ -1,5 +1,5 @@
 $(function() {
-	$('#example').DataTable({
+	/*$('#example').DataTable({
 		"processing": true,
         "serverSide": true,
 		"ordering": false,
@@ -46,5 +46,5 @@ $(function() {
 		"drawCallback" : function(settings) {
 			
         }
-	});
+	});*/
 });

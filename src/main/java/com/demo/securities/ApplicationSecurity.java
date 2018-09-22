@@ -17,7 +17,7 @@ import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 public class ApplicationSecurity extends WebSecurityConfigurerAdapter {
 
 	@Autowired
-	AuthenticationSuccessHandler authenticationSuccessHandler;
+	private AuthenticationSuccessHandler authenticationSuccessHandler;
 
 	@Autowired
 	private UserDetailsService userDetailsService;
@@ -40,7 +40,7 @@ public class ApplicationSecurity extends WebSecurityConfigurerAdapter {
 				.formLogin().loginPage("/login").loginProcessingUrl("/login").failureUrl("/login?error=true")
 				.successHandler(authenticationSuccessHandler).usernameParameter("username")
 				.passwordParameter("password").and().logout().logoutRequestMatcher(new AntPathRequestMatcher("/logout"))
-				.logoutSuccessUrl("/").and().exceptionHandling().accessDeniedPage("/access-denied");
+				.logoutSuccessUrl("/login?logout=true").and().exceptionHandling().accessDeniedPage("/access-denied");
 	}
 
 	@Override

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="~{layout}">
+<head>
+<title>Home</title>
+</head>	
+<body>
+	<div class="container-fluid BodyContent" layout:fragment="content">
+		<div class="container">
+			<div class="container-bgwraper">
+				<div class="row">
+					<div class="col-sm-12">
+						<div class="phead">
+							<span class="mhead"> Dashboard </span>
+							<span class="actions"> 
+								<a th:href="@{/superadmin/register}"><img th:src="@{/images/create-icon.png}" alt="Create Company" title="Create Company" /></a>
+							</span>
+							<br clear="all">
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-sm-12">
+						<div class="caption">
+							 Active Companies
+							 <span class="badge">2</span>
+						</div>
+					</div>
+				</div>
+				<div class="table-responsive">
+					<table class="table table-hover">
+						<thead>
+							<tr>
+								<th>Company Code</th>
+								<th>Name</th>
+								<th>Created Date</th>								
+							</tr>
+						</thead>
+					</table>
+				</div>
+				<div class="row">
+					<div class="col-sm-12">
+						<div class="caption">
+							 Inactive Companies
+							 <span class="badge">2</span>
+						</div>
+					</div>
+				</div>
+				<div class="table-responsive">
+					<table class="table table-hover">
+						<thead>
+							<tr>
+								<th>Company Code</th>
+								<th>Name</th>
+								<th>Created Date</th>								
+							</tr>
+						</thead>
+					</table>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

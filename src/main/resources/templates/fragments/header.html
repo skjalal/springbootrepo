@@ -1,15 +1,47 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
 <body>
-	<div class="container-fluid" th:fragment="header">
-		<div class="container">
-			<div class="row">
-				<div class="col-sm-12">Header Part</div>
+	<div th:fragment="header">	
+		<div sec:authorize="hasAuthority('SUPERADMIN')">	
+			<div class="container-fluid main-header">
+				<div class="container">		
+					<div class="row">
+						<div class="col-md-4 col-sm-4 col-xs-12 pull-left">
+							<img th:src="@{/images/sutidesk-logo.jpg}" class="logo" alt="SutiDesk">
+						</div>
+						<div class="col-md-4 col-sm-3 col-xs-12 pull-left">
+							<input name="globalsearch" id="globalsearch" type="text" class="search" placeholder="Ticket ID" />
+						</div>
+						<div class="col-md-2 col-sm-2"></div>
+						<div class="col-md-4 col-sm-5 col-xs-12">
+							<div class="hright">
+								<div class="user-photo">
+									<div class="dropdown pull-right">
+										<a id="btn_123" type="button" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+											<img class="head-profile" th:src="@{/images/profile.jpg}" alt="">
+										</a>
+										<ul class="dropdown-menu">
+							 				<li><a href="#">Dashboard</a></li>					
+							 				<li><a href="#">My Account</a></li>
+											<li><a th:href="@{/logout}">Sign out</a></li>
+						 				</ul>
+									</div>
+								</div>
+								<div class="user-name bars">
+									<div class="username-empname">Super Admin, Admin</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
 			</div>
-		</div>
-		<div class="navbar navbar-default" role="navigation">
-			<div class="container">
-				<div class="navbar-header">Menu Part</div>
+			<div class="navbar navbar-default" role="navigation">
+				<div class="container-fluid">
+					<div class="navbar-header"></div>
+					<div class="collapse navbar-collapse">
+						<ul class="nav navbar-nav"></ul>
+					</div>
+				</div>
 			</div>
 		</div>
 	</div>

@@ -25,13 +25,13 @@ public class DefaultAuthenticationSuccessHandler implements AuthenticationSucces
 		Collection<? extends GrantedAuthority> authorities = authentication.getAuthorities();
 		for (GrantedAuthority grantedAuthority : authorities) {
 			if(grantedAuthority.getAuthority().equalsIgnoreCase("SUPERADMIN")) {
-				redirectStrategy.sendRedirect(request, response, "/superadmin/home");
+				redirectStrategy.sendRedirect(request, response, "/superadmin/dashboard");
 			} else if(grantedAuthority.getAuthority().equalsIgnoreCase("COMPANYADMIN")) {
-				redirectStrategy.sendRedirect(request, response, "/companyadmin/home");
+				redirectStrategy.sendRedirect(request, response, "/companyadmin/dashboard");
 			} else if(grantedAuthority.getAuthority().equalsIgnoreCase("AGENTADMIN")) {
-				redirectStrategy.sendRedirect(request, response, "/agentadmin/home");
+				redirectStrategy.sendRedirect(request, response, "/agentadmin/dashboard");
 			} else {
-				redirectStrategy.sendRedirect(request, response, "/user/home");
+				redirectStrategy.sendRedirect(request, response, "/user/dashboard");
 			}
 		}
 	}

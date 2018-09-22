@@ -5,12 +5,23 @@
 <meta charset="UTF-8" />
 <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Sample</title>
-<link href='images/favicon.ico' rel='shortcut icon' />
+<link href='/images/favicon.ico' rel='shortcut icon' />
 <link rel="stylesheet" th:href="@{/css/bootstrap.css}" />
 <link rel="stylesheet" th:href="@{/css/style.css}" />
+<link rel="stylesheet" th:href="@{/css/dataTables.bootstrap.css}" />
 <script type="text/javascript" th:src="@{/js/jquery-3.3.1.js}"></script>
 <script type="text/javascript" th:src="@{/js/bootstrap.js}"></script>
+<script type="text/javascript" th:src="@{/js/jquery.dataTables.js}"></script>
+<script type="text/javascript" th:src="@{/js/dataTables.bootstrap.js}"></script>
+<script type="text/javascript" th:src="@{/js/script.js}"></script>
+<script type="text/javascript">
+	$(function() {
+		window.history.pushState(null, "", window.location.href);        
+        window.onpopstate = function() {
+            window.history.pushState(null, "", window.location.href);
+        };
+	});
+</script>
 </head>
 <body>
 	<div th:replace="fragments/header :: header"></div>

@@ -8,8 +8,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequestMapping(value = "/superadmin")
 public class SuperAdminController {
 	
-	@GetMapping("/home")
+	@GetMapping("/dashboard")
 	public String home() {
-		return "views/index";
+		return "superadmin/dashboard";
+	}
+	
+	@GetMapping("/register")
+	public String register() {
+		return "superadmin/register";
 	}
 }
