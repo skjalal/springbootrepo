@@ -9,6 +9,9 @@
 	<div class="container-fluid BodyContent" layout:fragment="content">
 		<div class="container">
 			<div class="container-bgwraper">
+				<div class="alert alert-danger" th:if="${param.error}">
+					Please try again...
+				</div>
 				<div class="row">
 					<div class="col-sm-6 col-md-6 col-xs-12 register-bg2">
 						<h6>Top 3 reasons why people choose SutiDesk</h6>
@@ -32,7 +35,7 @@
 						</div>
 					</div>
 					<div class="col-sm-6 col-md-6 col-xs-12 register-bg2">
-						<form th:action="@{/register}" id="companyRegisterForm" name="companyRegisterForm" role="form" method="post">
+						<form th:action="@{/superadmin/register}" id="companyRegisterForm" name="companyRegisterForm" role="form" method="post">
 							<h5>Register</h5>
 							<h4>Just fill out the basic information below and you will be up and running in no time.</h4>
 							<label>First Name</label>
@@ -46,7 +49,7 @@
     						<label>Company Code</label>
     						<div class="row">
     							<div class="col-sm-9">
-    								<input type="text" class="form-control mand" id="companyName" name="companyName" placeholder="Company Name">
+    								<input type="text" class="form-control mand" id="code" name="code" placeholder="Company Name">
     							</div>
     							<div class="col-sm-3"><label style="margin-top: 8px; margin-left: -18px;">.sutidesk.com</label></div>
     						</div>

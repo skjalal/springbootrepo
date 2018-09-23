@@ -9,7 +9,6 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -33,9 +32,9 @@ public class UserRegistration {
 
 	@Column(name = "password", nullable = false, length = 250)
 	private String password;
-	
-	@JoinColumn(name = "role_id", unique = true)
-	@OneToOne(cascade = CascadeType.ALL)
+
+	@ManyToOne(cascade = CascadeType.ALL)
+	@JoinColumn(name = "role_id", nullable = false)
 	private Role role;
 
 	@Column(name = "type_id", nullable = false)
@@ -106,8 +105,8 @@ public class UserRegistration {
 		this.firstName = firstName;
 	}
 
-	public UserRegistration(StatusMain statusMain, Integer companyId, String userName, String password, Role role, Integer typeId,
-			String typeName, String firstName, String privilege, String forgotKey, String timeZone,
+	public UserRegistration(StatusMain statusMain, Integer companyId, String userName, String password, Role role,
+			Integer typeId, String typeName, String firstName, String privilege, String forgotKey, String timeZone,
 			String lastLoginTime, String lastLogoutTime, String ipAddress, String clocksEnable, String digitalFormat,
 			String dateDisplay, String gmtDisplay, String timeDisplay, String countryDisplay, String isAgentAdmin,
 			Integer defaultCompanyId, String calendarUserId) {

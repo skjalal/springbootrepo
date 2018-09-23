@@ -4,6 +4,13 @@
 	layout:decorate="~{layout}">
 <head>
 <title>Home</title>
+<script type="text/javascript">
+	$(function() {
+		$("#success-alert").fadeTo(2000, 1000).slideUp(1000, function(){
+		    $("#success-alert").slideUp(1000);
+		});
+	});
+</script>
 </head>	
 <body>
 	<div class="container-fluid BodyContent" layout:fragment="content">
@@ -19,6 +26,9 @@
 							<br clear="all">
 						</div>
 					</div>
+				</div>
+				<div id="success-alert" class="alert alert-success" th:if="${param.success}">
+					Company have been successfully created
 				</div>
 				<div class="row">
 					<div class="col-sm-12">
