@@ -9,6 +9,41 @@
 		$("#success-alert").fadeTo(2000, 1000).slideUp(1000, function(){
 		    $("#success-alert").slideUp(1000);
 		});
+		$('#activeCompanyTable').DataTable({
+			"processing": true,
+	        "serverSide": true,
+			"ordering": false,
+	        "info":  true,
+	        "searching": false,
+	        "scrollX": true,
+	        "scrollY": true,
+	        "scrollCollapse": true,
+	        "autoWidth": true,
+	        "pagingType": "full_numbers",
+	        "ajax": {
+	        	"url" : "/superadminrest/companies",
+	        	"type": 'GET',
+	            "datatype": 'json',
+	            "data" : function(d) {
+	            	d.searchFilter = d.search.value;
+	            }
+	        },
+	        "language" : {
+	        	"processing" : "<img src='/images/loading_confrm.gif'>",
+	        	"infoFiltered": "",
+	        	"emptyTable" : "No records found with given search criteria"
+	        },
+	        //"dom":"<'row'<'col-xs-12  col-sm-4 col-md-4'l><'col-xs-12  col-sm-4 col-md-4'f><'col-xs-12  col-sm-4 col-md-4'<'pull-right blackImgCls'B>>r>t<'col-xs-12  col-sm-6 col-md-6'i><'col-xs-12  col-sm-4 col-md-6'p>",
+	        "columns" : [{ "data": "companyCode" },
+						 { "data": "companyName" },
+						 { "data": "createdDate" }],
+	        "initComplete": function(settings, json) {
+	        	$('#activeCount').text(json.recordsTotal);
+	        },
+			"drawCallback" : function(settings) {
+				
+	        }
+		});
 	});
 </script>
 </head>	
@@ -34,12 +69,12 @@
 					<div class="col-sm-12">
 						<div class="caption">
 							 Active Companies
-							 <span class="badge">2</span>
+							 <span id="activeCount" class="badge">0</span>
 						</div>
 					</div>
 				</div>
 				<div class="table-responsive">
-					<table class="table table-hover">
+					<table class="table table-hover" id="activeCompanyTable" style="width: 100%;">
 						<thead>
 							<tr>
 								<th>Company Code</th>
@@ -53,7 +88,7 @@
 					<div class="col-sm-12">
 						<div class="caption">
 							 Inactive Companies
-							 <span class="badge">2</span>
+							 <span id="inactiveCount" class="badge">0</span>
 						</div>
 					</div>
 				</div>
