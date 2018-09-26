@@ -94,7 +94,7 @@ div.dataTables_wrapper div.dataTables_processing {
 .search {
 	font-size: 14px;
 	width: 100%;
-	background: #e6e6e6 url(/images/search.png) no-repeat left;
+	background: #e6e6e6 url(../images/search.png) no-repeat left;
 	color: #333;
 	padding: 6px 6px 8px 39px;
 	border: none;

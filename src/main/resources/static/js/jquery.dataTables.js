@@ -11343,7 +11343,7 @@
 				 *      } );
 				 *    } );
 				 */
-				"sFirst": "<img src='/images/first-arrow.png' title='First'>",
+				"sFirst": "<img src='../images/first-arrow.png' title='First'>",
 	
 	
 				/**
@@ -11366,7 +11366,7 @@
 				 *      } );
 				 *    } );
 				 */
-				"sLast": "<img src='/images/last-arrow.png' title='Last'>",
+				"sLast": "<img src='../images/last-arrow.png' title='Last'>",
 	
 	
 				/**
@@ -11389,7 +11389,7 @@
 				 *      } );
 				 *    } );
 				 */
-				"sNext": "<img src='/images/next-arrow.png' title='Next'>",
+				"sNext": "<img src='../images/next-arrow.png' title='Next'>",
 	
 	
 				/**
@@ -11412,7 +11412,7 @@
 				 *      } );
 				 *    } );
 				 */
-				"sPrevious": "<img src='/images/previous-arrow.png' title='Previous'>"
+				"sPrevious": "<img src='../images/previous-arrow.png' title='Previous'>"
 			},
 	
 			/**
