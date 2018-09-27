@@ -37,19 +37,26 @@ public class CompanyRestController {
 		try {
 			Pageable pageable = PageRequest.of(start / length, length, Direction.DESC, "companyId");
 			Page<Company> page = null;
-			if(search.isEmpty()) {
-				page = companyRepository.findAll(pageable);
-			} else {
-				page = companyRepository.findByCompanyNameIgnoreCaseContaining(pageable, search);
-			}
+			page = companyRepository.findAll(pageable);
 			List<Company> Company = page.getContent();
 			List<CompanyDTO> companies = new ArrayList<>();
 			for(Company company : Company) {
-				CompanyDTO companyDTO = new CompanyDTO(company.getCode(), company.getName(), sdf.format(company.getCreatedDate()));
-				companies.add(companyDTO);
+				CompanyDTO companyDTO = null;
+				if(search.equalsIgnoreCase("active") && company.getStatusMain().getStatusId().equals(1)) {
+					companyDTO = new CompanyDTO(company.getCode(), company.getName(), sdf.format(company.getCreatedDate()));
+				} else if(search.equalsIgnoreCase("active") && company.getStatusMain().getStatusId().equals(2)) {					
+					companyDTO = new CompanyDTO(company.getCode(), company.getName(), sdf.format(company.getCreatedDate()));
+				}
+				if(companyDTO != null) {					
+					companies.add(companyDTO);
+				}
 			}
-			int count = page.getNumberOfElements();
-			long total = page.getTotalElements();
+			int count = 0;
+			long total = 0;
+			if(!companies.isEmpty()) {
+				count = page.getNumberOfElements();
+				total = page.getTotalElements();
+			}
 			dataTableResponse = new DataTableResponse(draw, count, total, companies);
 		} catch (Exception e) {
 			logger.error(e.getMessage());

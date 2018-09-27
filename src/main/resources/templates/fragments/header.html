@@ -7,7 +7,7 @@
 				<div class="container">		
 					<div class="row">
 						<div class="col-md-4 col-sm-4 col-xs-12 pull-left">
-							<img th:src="@{/images/sutidesk-logo.jpg}" class="logo" alt="SutiDesk">
+							<a th:href="@{/superadmin/dashboard}"><img th:src="@{/images/sutidesk-logo.jpg}" class="logo" alt="SutiDesk"></a>
 						</div>
 						<div class="col-md-4 col-sm-3 col-xs-12 pull-left">
 							<input name="globalsearch" id="globalsearch" type="text" class="search" placeholder="Ticket ID" />
@@ -21,7 +21,7 @@
 											<img class="head-profile" th:src="@{/images/profile.jpg}" alt="">
 										</a>
 										<ul class="dropdown-menu">
-							 				<li><a href="#">Dashboard</a></li>					
+							 				<li><a th:href="@{/superadmin/dashboard}">Dashboard</a></li>					
 							 				<li><a href="#">My Account</a></li>
 											<li><a th:href="@{/logout}">Sign out</a></li>
 						 				</ul>
