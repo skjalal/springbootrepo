@@ -34,7 +34,7 @@
 				<div class="alert alert-danger" th:if="${param.error}">
 					Email or Password invalid, please verify
 				</div>
-				<input type="text" name="username" id="username" class="form-control" placeholder="Email address" />
+				<input type="email" name="username" id="username" class="form-control" placeholder="Email address" />
 				<input type="password" id="password" name="password" class="form-control" placeholder="Password" />
 				<button type="submit" id="loginBtn" class="btn btn-primary">Sign In</button>
 				<img id="loadingImg" alt="Loading..." th:src="@{images/loading_confrm.gif}" style="margin: auto; display: none;" class="img-responsive">
@@ -42,7 +42,7 @@
 			<div class="form-footer">
 				<div class="row">
 					<div class="col-xs-8 col-sm-8 col-md-8">
-						<a href="#"> Forgot Password? </a>
+						<a th:href="@{/forgotPassword}"> Forgot Password? </a>
 					</div>
 				</div>
 			</div>

@@ -33,7 +33,7 @@ public class ApplicationSecurity extends WebSecurityConfigurerAdapter {
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
 		http.authorizeRequests().antMatchers("/").permitAll().antMatchers("/login").permitAll()
-				.antMatchers("/registration").permitAll().antMatchers("/superadmin/**").hasAuthority("SUPERADMIN")
+				.antMatchers("/forgotPassword").permitAll().antMatchers("/superadmin/**").hasAuthority("SUPERADMIN")
 				.anyRequest().authenticated().antMatchers("/companyadmin/**").hasAuthority("COMPANYADMIN").anyRequest()
 				.authenticated().antMatchers("/agentadmin/**").hasAuthority("AGENTADMIN").anyRequest().authenticated()
 				.antMatchers("/user/**").hasAuthority("AGENT").anyRequest().authenticated().and().csrf().disable()

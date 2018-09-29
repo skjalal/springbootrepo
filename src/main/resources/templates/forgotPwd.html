@@ -3,11 +3,15 @@
 <head>
 <title>SutiDesk</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<link th:href='@{/images/favicon.ico}' rel='shortcut icon' />
+<link href='images/favicon.ico' rel='shortcut icon' />
 <link rel="stylesheet" th:href="@{/css/bootstrap.css}" />
 <style type="text/css">
 .BodyContent2 {
 	padding-bottom: 16px;
+}
+
+label {
+    font-weight: normal !important;
 }
 
 .container-fluid {
@@ -87,6 +91,9 @@ a:hover {
 	function noBack() { 
 	     window.history.forward(1); 
 	}
+	function cancelbtn() {
+		window.location.href = '/demo/login';
+	}
 </script>
 </head>
 <body onload="noBack();">
@@ -96,16 +103,32 @@ a:hover {
 				<div class="modal-dialog password" role="document">
 					<div class="row">
 						<div class="col-sm-12 text-center">
-							<img th:src="@{/images/SutiDesk.png}" width="149" height="72" class="plogo">
+							<img th:src="@{images/SutiDesk.png}" width="149" height="72" class="plogo">
 						</div>
 					</div>
 					<div class="modal-content">
 						<div class="modal-header">
-							<h5>Session Expired</h5>
+							<h5>Forgot Password</h5>
 						</div>
 						<div class="modal-body">
-							<p class="text-justify">Your online SutiDesk session has expired and you have been logged out.</p>
-							<p><a th:href="@{/}">Click here</a> to login.</p>
+							<p class="text-justify">Instructions to reset your password will be sent to the email address you provide.</p>
+							<form th:action="@{/forgotPassword}" class="form-signin" role="form" method="post">
+								<div class="alert alert-danger" th:if="${param.error}">
+									Email or Password invalid, please verify
+								</div>
+								<div class="alert alert-success" th:if="${forgotPwdMessage}">
+									<p th:text="${forgotPwdMessage}"></p>
+								</div>
+								<div class="form-group">
+									<label for="email">Email address</label>
+									<input style="border-radius: 0" type="email" name="email" id="email" class="form-control" placeholder="Email address" />
+								</div>
+								<div class="text-right">
+									<button class="btn btn-success" type="submit">Send Email</button>
+									<button class="btn btn-danger" type="button" onclick="cancelbtn()">Cancel</button>
+									<button class="btn btn-danger" type="reset">Reset</button>
+								</div>
+							</form>
 						</div>
 					</div>
 				</div>
