@@ -67,10 +67,9 @@
 .control-label {
 	height: auto !important;
 	margin-bottom: 8px !important;
-	padding: 6px 4px 7px !important;
+	padding: 5px 4px 4px;
 	text-align: right !important;
 	width: 100%;
-	color: #000 !important
 }
 
 label {
@@ -361,10 +360,31 @@ h5 {
     background: #449d44 !important;
     border-color: #449d44 !important;
 }
+
+.btn-primary {
+    background: #286090 !important;
+    border-color: #0081c0 !important;
+}
+
+.btn-danger {
+    background: #d00000 !important;
+    border-color: #d00000 !important;
+}
+
 .btn {
     color: #fff !important;
     margin-top: 0px !important;
     padding: 5px 16px 6px !important;
     font-size: 15px !important;
     font-weight: normal !important;
+}
+
+.breadcrumbs {
+    margin-bottom: 11px !important;
+    color: #666 !important;
+}
+
+.buttons {
+    text-align: right;
+    margin: 8px 0 7px 0;
 }

@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="~{layout}">
+<head>
+<title>My Account</title>
+<script type="text/javascript">
+	$(function() {
+		$('#cancelBtn').click(function() {
+			$('#changePwdForm').attr('action','dashboard').submit();
+		});
+	});
+</script>
+</head>
+<body>
+	<div class="container-fluid BodyContent" layout:fragment="content">
+		<div class="container">
+			<div class="container-bgwraper">
+				<div class="row">
+					<div class="col-sm-12">
+						<div class="breadcrumbs">
+							<a th:href="@{/superadmin/dashboard}"><i class="fa fa-home" aria-hidden="true"></i></a>
+							<img alt="home" th:src="@{/images/bread-arrow.png}">
+							<span>My Account</span>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-sm-12">
+						<div class="phead">
+							<span class="mhead"> My Account</span> <br clear="all" />
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-sm-12">
+						<div class="caption">Change Password</div>
+					</div>
+				</div>
+				<form th:action="@{/superadmin/changePwd}" id="changePwdForm" name="changePwdForm" role="form" method="post">
+					<div class="form-group">
+						<div class="alert alert-danger" th:if="${param.error}">
+							Please try again...
+						</div>
+						<div class="alert alert-danger" th:if="${passwordnotfound}">
+							<span th:text="${passwordnotfound}"></span>
+						</div>
+						<div class="alert alert-success" th:if="${passwordchanged}">
+							<span th:text="${passwordchanged}"></span>
+						</div>
+						<div class="row">
+							<div class="col-sm-12 col-xs-12 col-md-6">
+								<div class="row">
+									<div class="col-sm-4">								
+										<label class="control-label">Old password</label>
+									</div>
+									<div class="col-sm-8">
+										<input type="password" name="oldPassword" id="oldPassword" class="form-control mand" placeholder="Old address" />								
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-sm-4">								
+										<label class="control-label">New password</label>
+									</div>
+									<div class="col-sm-8">
+										<input type="password" name="newPassword" id="newPassword" class="form-control mand" placeholder="New address" />								
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-sm-4">								
+										<label class="control-label">Confirm New password</label>
+									</div>
+									<div class="col-sm-8">
+										<input type="password" name="cnfNewPassword" id="cnfNewPassword" class="form-control mand" placeholder="Confirm New address" />								
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-sm-12 col-xs-12 col-md-11 buttons">					
+							<button class="btn btn-primary" type="submit">Update</button>
+							<button class="btn btn-danger" type="button" id="cancelBtn">Cancel</button>
+							<button class="btn btn-danger" type="reset">Reset</button>
+						</div>
+					</div>
+				</form>
+				<br clear="all">
+				<div class="row">
+					<div class="col-sm-12">
+						<div class="caption">Default Company Details</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-sm-12 col-xs-12 col-md-6">
+						<div class="row">
+							<div class="col-sm-4"><label class="control-label">Default Company Name</label></div>
+							<div class="col-sm-8">
+								<select class="form-control">
+									<option value="-1">Select</option>
+								</select>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-sm-12 col-xs-12 col-md-11 buttons">					
+						<button class="btn btn-primary" type="button">Update</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>
