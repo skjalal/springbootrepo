@@ -31,6 +31,9 @@
 				<div id="success-alert" class="alert alert-success" th:if="${param.logout}">
 					You have been successfully logged out
 				</div>
+				<div class="alert alert-success" th:if="${password}">
+					Password updated successfully
+				</div>
 				<div class="alert alert-danger" th:if="${param.error}">
 					Email or Password invalid, please verify
 				</div>
